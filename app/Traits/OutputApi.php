@@ -18,7 +18,7 @@ trait OutputApi
     {
         $response = [
             'message'   => $message,
-            'errors'    => ($errors) ? $errors : []
+            'errors'    => ($errors) ? $errors : null
         ];
         return response()->json($response, $httpCode);
     }
