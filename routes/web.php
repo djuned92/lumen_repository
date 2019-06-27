@@ -14,3 +14,8 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->get('/user','UserController@all');
+$router->post('/user','UserController@create');
+
+$router->get('/andrie','ExampleController@andrie');

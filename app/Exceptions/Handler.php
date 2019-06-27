@@ -8,6 +8,7 @@ use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Laravel\Lumen\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Illuminate\Http\JsonResponse;
 
 class Handler extends ExceptionHandler
 {
@@ -45,6 +46,16 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if($exception instanceof ValidationException) {
+            return new JsonResponse([
+                "status" => [
+                    "code" => 1,
+                    "message" => $exception
+                ]
+            ], 422);
+            // gw maunya bikin exception yang reformat message tempo hari gw tanyain
+        }
+
         return parent::render($request, $exception);
     }
 }
