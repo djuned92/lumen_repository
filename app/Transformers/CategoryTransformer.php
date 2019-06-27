@@ -3,7 +3,7 @@
 namespace App\Transformers;
 
 use League\Fractal\TransformerAbstract;
-use App\Entities\Category;
+use App\Models\Category;
 
 /**
  * Class CustomerInfoTransformer.
