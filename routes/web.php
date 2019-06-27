@@ -15,9 +15,11 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-//? test
-
 $router->get('/user','UserController@all');
 $router->post('/user','UserController@create');
 
 $router->get('/andrie','ExampleController@andrie');
+
+$router->group(['prefix' => 'v1/category'], function () use ($router) {
+    $router->get('/', 'V1\Category\CategoryController@index');
+});
