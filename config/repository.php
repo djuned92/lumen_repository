@@ -225,18 +225,34 @@ return [
     |--------------------------------------------------------------------------
     |
     */
+    // 'generator'  => [
+    //     'basePath'      => app()->path(),
+    //     'rootNamespace' => 'App\\',
+    //     'stubsOverridePath' => app()->path(),
+    //     'paths'         => [
+    //         'models'       => 'Models',
+    //         'repositories' => 'Repositories\\Eloquent',
+    //         'interfaces'   => 'Contracts\\Repositories',
+    //         'transformers' => 'Transformers',
+    //         'presenters'   => 'Presenters',
+    //         'validators'   => 'Validators',
+    //         'controllers'  => 'Http/Controllers',
+    //         'provider'     => 'RepositoryServiceProvider',
+    //         'criteria'     => 'Criteria'
+    //     ]
+    // ]
     'generator'  => [
         'basePath'      => app()->path(),
         'rootNamespace' => 'App\\',
         'stubsOverridePath' => app()->path(),
         'paths'         => [
-            'models'       => 'Models',
+            'models'       => 'Entities',
             'repositories' => 'Repositories\\Eloquent',
             'interfaces'   => 'Contracts\\Repositories',
             'transformers' => 'Transformers',
             'presenters'   => 'Presenters',
             'validators'   => 'Validators',
-            'controllers'  => 'Http/Controllers',
+            'controllers'  => 'Http/Controllers/V1',
             'provider'     => 'RepositoryServiceProvider',
             'criteria'     => 'Criteria'
         ]
