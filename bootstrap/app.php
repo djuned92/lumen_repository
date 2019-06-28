@@ -83,8 +83,10 @@ $app->singleton(
 $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
 $app->register(Prettus\Repository\Providers\LumenRepositoryServiceProvider::class);
 $app->register(Pearl\RequestValidate\RequestServiceProvider::class);
+$app->register(\SwaggerLume\ServiceProvider::class);
 
 $app->configure('repository');
+$app->configure('swagger-lume');
 
 /*
 |--------------------------------------------------------------------------

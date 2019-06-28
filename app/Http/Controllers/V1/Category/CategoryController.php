@@ -15,6 +15,16 @@ class CategoryController extends Controller
         $this->repository = $repository;
     }
 
+    /**
+     * @OA\Info(title="Awesome API Reference", version="1.0.0")
+     */
+
+    /**
+     * @OA\Get(
+     *     path="/v1/category",
+     *     @OA\Response(response="200", description="An example resource")
+     * )
+     */
     public function index(Request $request)
     {
         $name = $request->name;
