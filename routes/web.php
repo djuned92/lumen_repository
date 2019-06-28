@@ -23,3 +23,5 @@ $router->get('/andrie','ExampleController@andrie');
 $router->group(['prefix' => 'v1/category'], function () use ($router) {
     $router->get('/', 'V1\Category\CategoryController@index');
 });
+
+//?test
