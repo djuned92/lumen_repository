@@ -5,6 +5,8 @@ namespace App\Http\Controllers\V1\Category;
 use App\Http\Controllers\Controller;
 use App\Repositories\Eloquent\CategoryRepositoryEloquent;
 use Illuminate\Pagination\Paginator;
+use App\Criteria\CategoryFilterByNameCriteria;
+use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -13,8 +15,16 @@ class CategoryController extends Controller
         $this->repository = $repository;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return $categories = $this->repository->paginate(1);
+        $name = $request->name;
+
+        if($name){
+            $this->repository->pushCriteria(new CategoryFilterByNameCriteria($name));
+        }
+
+        $categories = $this->repository->all();
+
+        return $this->responseSuccess($categories);
     }
 }

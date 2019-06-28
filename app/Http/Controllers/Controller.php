@@ -32,4 +32,31 @@ class Controller extends BaseController
      * @var int
      */
     protected $httpStatusCode = Response::HTTP_OK;
+
+    protected function responseSuccess($data = [])
+    {
+        if (is_bool($data)) {
+            $data = [
+                'data' => $data
+            ];
+        }
+
+        if (count($data['data']) == 0) {
+            $data = [
+                'data' => []
+            ];
+        }
+
+        return response()->json(array_merge($this->getStatusInfo(), $data), $this->httpStatusCode);
+    }
+
+    private function getStatusInfo()
+    {
+        return [
+            'status' => [
+                'code'    => $this->statusCode,
+                'message' => $this->statusMessage
+            ]
+        ];
+    }
 }
