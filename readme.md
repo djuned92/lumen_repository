@@ -14,3 +14,5 @@ role_id:2
 fullname:ahmad djunaedi
 phone:089693401875
 address:Bekasi
+
+GIT FLOW
